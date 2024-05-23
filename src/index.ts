@@ -2,6 +2,7 @@ import Server from './provider/Server';
 import {PORT,NODE_ENV} from './config';
 import express from 'express';
 import UsuarioControllers from './controllers/UsuarioControllers';
+import GameController from './controllers/GameController';
 
 const server = new Server({
     port:PORT,
@@ -11,7 +12,8 @@ const server = new Server({
         express.urlencoded({extended:true})
     ],
     controllers:[
-        UsuarioControllers.instance
+        UsuarioControllers.instance,
+        GameController.instance
     ]
 });
 

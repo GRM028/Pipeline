@@ -12,7 +12,7 @@ class GameController extends AbstractController {
   //Si existe la regresa
   public static get instance(): AbstractController {
     if (!this._instance) {
-      this._instance = new this("Usuario");
+      this._instance = new this("GameModel");
     }
     return this._instance;
   }
@@ -22,7 +22,7 @@ class GameController extends AbstractController {
   protected initRoutes(): void {
     //Como especificamos el get, podemos usarlo como atributo en lugar de metodo
     //Similar a la promesa de javaScript
-    this.router.get("/postGamePipeline", this.postGamePipeline.bind(this));
+    this.router.post("/postGamePipeline", this.postGamePipeline.bind(this));
     this.router.get("/getGamePipeline", this.getGamePipeline.bind(this));
     
   }

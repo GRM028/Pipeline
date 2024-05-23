@@ -23,8 +23,8 @@ class UsuarioController extends AbstractController {
   protected initRoutes(): void {
     //Como especificamos el get, podemos usarlo como atributo en lugar de metodo
     //Similar a la promesa de javaScript
-    this.router.get("/postUsuarioPipeline", this.postUsuarioPipeline.bind(this));
-    this.router.get("/getUsuarioPipeline", this.getGamePipeline.bind(this));
+    this.router.post("/postUsuarioPipeline", this.postUsuarioPipeline.bind(this));
+    this.router.get("/getUsuarioPipeline", this.getUsuarioPipeline.bind(this));
     
   }
 
@@ -32,10 +32,10 @@ class UsuarioController extends AbstractController {
   //Metodos de instancia
   //Se declara privada porque solo init routes la va a usar
 
-  private async getGamePipeline(req: Request, res: Response) {
+  private async getUsuarioPipeline(req: Request, res: Response) {
     try {
-      console.log("Consultar Juego");
-      let juegos = await db["Nombre"].findAll(); //Select * FROM AGENTE
+      console.log("Consultar Usuarios");
+      let juegos = await db["Usuario"].findAll(); //Select * FROM AGENTE
       res.status(200).json(juegos);
     } catch (error: any) {
       console.log(error);
@@ -46,9 +46,9 @@ class UsuarioController extends AbstractController {
   private async postUsuarioPipeline(req: Request, res: Response) {
     try {
       console.log(req.body);
-      await db.Nombre.create(req.body); //INSERT
+      await db.Usuario.create(req.body); //INSERT
       console.log("Juego Creado");
-      res.status(200).send("<h1>Juego Creado</h1>");
+      res.status(200).send("<h1>Usuario Creado</h1>");
     } catch (error) {
       console.log(error);
       res.status(500).send("Internal Server Error " + error);
