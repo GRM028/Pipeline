@@ -4,7 +4,10 @@
   "description": "Desarrollo  de proyecto de backend y despliegue\r A01753830 - Gerardo Rios Mejía\r A01746219 - Eric Manuel Navarro Martínez",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsc",
+    "start": "node -r dotenv/config dist/index.js",
+    "build:start": "tsc && node -r dotenv/config dist/index.js"
+
   },
   "keywords": [],
   "author": "",
