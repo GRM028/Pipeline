@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import AbstractController from "./AbstractController.ts";
-import GameModel from "../modelsNOSQL/gameNOSQL.ts";
+import AbstractController from "./AbstractController";
+import GameModel from "../modelsNOSQL/gameNOSQL";
 
 //Hereda de AbstractController por eso usamos extends
 class GameController extends AbstractController {
