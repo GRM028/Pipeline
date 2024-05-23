@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import AbstractController from "./AbstractController";
 import db from "../models";
-import DepartamentoModel from "../modelsNOSQL/gameNOSQL.ts";
+
 
 //Hereda de AbstractController por eso usamos extends
 class UsuarioController extends AbstractController {
@@ -23,8 +23,8 @@ class UsuarioController extends AbstractController {
   protected initRoutes(): void {
     //Como especificamos el get, podemos usarlo como atributo en lugar de metodo
     //Similar a la promesa de javaScript
-    this.router.get("/postGamePipeline", this.postGamePipeline.bind(this));
-    this.router.get("/getGamePipeline", this.getGamePipeline.bind(this));
+    this.router.get("/postUsuarioPipeline", this.postUsuarioPipeline.bind(this));
+    this.router.get("/getUsuarioPipeline", this.getGamePipeline.bind(this));
     
   }
 
@@ -34,19 +34,19 @@ class UsuarioController extends AbstractController {
 
   private async getGamePipeline(req: Request, res: Response) {
     try {
-      const games = await GameModel.scan().exec().promise();
-      console.log(games);
-      res.status(200).send(games[0].Items);
-    } catch (error) {
+      console.log("Consultar Juego");
+      let juegos = await db["Nombre"].findAll(); //Select * FROM AGENTE
+      res.status(200).json(juegos);
+    } catch (error: any) {
       console.log(error);
       res.status(500).send("Internal Server Error " + error);
     }
   }
 
-  private async postGamePipeline(req: Request, res: Response) {
+  private async postUsuarioPipeline(req: Request, res: Response) {
     try {
       console.log(req.body);
-      await GameModel.create(req.body); //INSERT
+      await db.Nombre.create(req.body); //INSERT
       console.log("Juego Creado");
       res.status(200).send("<h1>Juego Creado</h1>");
     } catch (error) {

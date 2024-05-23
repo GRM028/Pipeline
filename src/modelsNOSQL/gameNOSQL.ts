@@ -1,6 +1,6 @@
-import dynamodb from "../services/dynamoService.ts";
+import dynamodb from "../services/dynamoServices";
 import joi from "joi";
-import { PREFIX_NAME } from "../config/index.ts";
+import { PREFIX_NAME } from "../config/index";
 
 const GameModel = dynamodb.define("game", {
   hashKey: "GameId",
