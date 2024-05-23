@@ -1,5 +1,5 @@
 import {Model,Sequelize} from 'sequelize';
-import UsuarioController from '../controllers/UsuarioController';
+import UsuarioController from '../controllers/UsuarioControllers.ts';
 
 interface UsuarioAttributes {
     id:number;
