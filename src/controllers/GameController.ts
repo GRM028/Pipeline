@@ -1,13 +1,12 @@
 import { Response, Request } from "express";
-import AbstractController from "./AbstractController";
-import db from "../models";
-import DepartamentoModel from "../modelsNOSQL/departamentoNOSQL.ts";
+import AbstractController from "./AbstractController.ts";
+import GameModel from "../modelsNOSQL/gameNOSQL.ts";
 
 //Hereda de AbstractController por eso usamos extends
-class FoodController extends AbstractController {
+class GameController extends AbstractController {
   //Singleton tecnica de programación, fuerza que la clase solo tenga una instancia y que sea reutilizable
   //Atributo de clase privado y estático
-  private static _instance: FoodController;
+  private static _instance: GameController;
 
   //Si no existe la instancia la genera
   //Si existe la regresa
@@ -55,4 +54,4 @@ class FoodController extends AbstractController {
     }
   }
 }
-  export default FoodController;
+  export default GameController;
