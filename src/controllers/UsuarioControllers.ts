@@ -1,7 +1,7 @@
 import { Response, Request } from "express";
 import AbstractController from "./AbstractController";
 import db from "../models";
-import DepartamentoModel from "../modelsNOSQL/departamentoNOSQL";
+import DepartamentoModel from "../modelsNOSQL/departamentoNOSQL.ts";
 
 //Hereda de AbstractController por eso usamos extends
 class UsuarioController extends AbstractController {
