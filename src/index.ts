@@ -1,7 +1,7 @@
 import Server from './provider/Server';
 import {PORT,NODE_ENV} from './config';
 import express from 'express';
-import UsuarioControllers from './controllers/UsuarioControllers.ts';
+import UsuarioControllers from './controllers/UsuarioControllers';
 
 const server = new Server({
     port:PORT,
